@@ -58,20 +58,20 @@ class _GamePageState extends State<GamePage> {
 
   @override
   void initState() {
-    super.initState();
-    _initialize();
-  }
+          super.initState();
+          _initialize();
+          }
 
-  Future<void> _initialize() async {
-    _game = MyGame(
-      onGameStateUpdate: (position, health) async {
-        ChannelResponse response;
-        // Loop until the send succeeds if the payload is to notify defeat.
-        do {
-          response = await _gameChannel!.send(
-            type: RealtimeListenTypes.broadcast,
-            event: 'game_state',
-            payload: {'x': position.x, 'y': position.y, 'health': health},
+              Future<void> _initialize() async {
+            _game = MyGame(
+              onGameStateUpdate: (position, health) async {
+                ChannelResponse response;
+                // Loop until the send succeeds if the payload is to notify defeat.
+                do {
+                  response = await _gameChannel!.send(
+                    type: RealtimeListenTypes.broadcast,
+                    event: 'game_state',
+                    payload: {'x': position.x, 'y': position.y, 'health': health},
           );
 
           // wait for a frame to avoid infinite rate limiting loops
