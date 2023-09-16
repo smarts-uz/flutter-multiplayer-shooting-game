@@ -1,2 +1,4 @@
 /// Get packages
 flutter pub add flame
+flutter pub add supabase_flutter
+flutter pub add uuid
