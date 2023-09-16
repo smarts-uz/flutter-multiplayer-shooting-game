@@ -1,0 +1,2 @@
+/// Get packages
+flutter pub add flame
